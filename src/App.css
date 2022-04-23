@@ -1,38 +1,762 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background-color  : black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.05rem solid #b2bec3;
+  padding: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.fa-twitter {
+  color: #1DA1F2;
+  font-size: 1.6rem;
+}
+
+.header .avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.header img {
+  width: 100%;
+  height: 100%;
+ border-radius: 50%;
+}
+
+.header .sparkle-icon{
+  font-size: 1.2rem;
+}
+
+.header .message-search{
+  display: none;
+}
+
+.footer {
+  position:fixed;
+  top:92vh;
+  right: 0;
+  left: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 0.05rem solid #E1E8ED;
+}
+
+.footer i {
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+.container {
+  margin-bottom: 2rem;
+  background-color: black;
+  color: white;
+}
+
+.container .add-tweet{
+  display: none;
+}
+
+.tweets-container .avatar {
+  width: 15%;
+  height: 20%;
+  margin: 0.5rem;
+}
+
+.tweets-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.tweets-container {
+  display: flex;
+  align-items: flex-start;
+  border-top: 0.05rem solid #b2bec3;
+}
+
+.userName {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+}
+
+/* .name { */
+  /* display: flex; */
+  /* width: 100%; */
+  /* margin: 0.2rem; */
+/* } */
+
+.fa-stack.small { 
+  font-size: 0.5em; 
+}
+
+.fa-stack.small i { 
+  vertical-align: middle; 
+}
+
+.fa-check {
+  color: white;
+}
+
+.fa-certificate {
+  color: #1DA1F2;
+}
+.tweets-container .tweets{
+  width: 100%;
+}
+
+.tweets-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.avatar {
+  display: flex;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.description {
+  margin: 0.2rem 0;
+}
+
+.comment-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.comment-bar i {
+  background-color: transparent;
+  font-size: 1.3rem;
+}
+
+.add-Tweet-icon {
+  position: fixed;
+  top: 75%;
+  left: 82%;
+  right: 0rem;
+  bottom: 0rem;
+}
+.add-Tweet-icon i {
+  padding: 1rem;
+  background-color: #1DA1F2;
+  border-radius: 50%;
+}
+
+.close-add i{
+  font-size: 1.5rem;
+  color: white;
+  position: absolute;
+  top: 1%;
+  right: 5%;
+}
+
+
+.add-tweet-div {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.tweetStatus{
+  margin: 1.2rem;
+}
+
+.add-tweet-mob input {
+  width: 70%;
+  padding: 0.25rem;
+  border: none;
+  margin-top: 1rem;
+  background-color: #393e42;
+  border-radius: 10px;
+}
+
+.add-tweet-mob input::placeholder{
+  color:#b3bbbe;
+}
+
+.add-tweet-mob textarea{
+  background-color: #393e42;
+  outline: none;
+  color: #b3bbbe;
+  padding: 0.25rem;
+}
+
+.add-tweet-mob textarea::placeholder{
+  color: #b3bbbe;
+  padding: 0.25rem;
+}
+
+.add-tweet-mob button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 1.6rem;
+  outline: none;
+  margin: 0.5rem ;
+  background-color: #1DA1F2;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-center {
+  padding: 2.5rem;
+  line-height: 1.8rem;
+}
+
+.msg-btn {
+  background-color: transparent;
+  color: white;
+  font-weight: 900;
+  border: none;
+  background-color: #1DA1F2;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.add-message {
+  background-color: #1DA1F2;
+  border-radius: 50%;
+  align-self: flex-end;
+  padding: 1rem;
+  margin: 2rem 1rem 4rem 0;
+}
+
+.message-search input {
+  padding: 0.3rem;
+  border-radius: 1rem;
+  background-color: #262929;
+  border: none;
+}
+
+input{
+  outline: none;
+}
+
+input::placeholder {
+  color: #606263;
+  font-size: 1rem;
+}
+
+.fa-plus {
+  font-size: 1.3rem;
+}
+
+.notification-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.notify-btn1 {
+  padding: 0.5rem;
+  background: transparent;
+  color: white;
+  border: none;
+}
+
+.notify-btn1.all {
+  border-bottom:2px solid #1DA1F2;
+}
+
+.header.profile {
+  background-color: #1DA1F2;
+  height:25vh;
+}
+
+.header.profile i{
+  position: absolute;
+  font-size: 1.3rem;
+  top: 2rem;
+  left: 90%;
+}
+
+.fa-xmark{
+  color: white;
+  cursor: pointer;
+}
+
+.header.profile .avatar {
+  position: absolute;
+  top: 5.5rem;
+  width:5rem;
+  height:5rem;
+}
+
+.userProfile .name {
+  display: flex;
+  position: relative;
+  top:3.5rem;
+  justify-content: space-between;
+}
+
+.tweets-container.profile {
+  position: relative;
+  top: 5rem;
+}
+
+.profile .profilerender:last-child {
+  margin-bottom: 8rem;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: black;
+}
+
+.menuHeader{
+  border-bottom: 0.05rem solid #b2bec3;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav i {
+  font-size: 1rem;
+  margin-right: 2rem;
+}
+
+.menuHeader .avatar {
+  width: 40px;
+  height: 40px;
+  margin: 1.2rem 0.5rem;
+}
+
+.menuHeader img {
+  width: 100%;
+  height: 100%;
+ border-radius: 50%;
+}
+
+.userName .name{
+  display: flex;
+  flex-direction: column;
+}
+
+.menuHeader .userName .uname {
+  margin: 0.5rem 0;
+}
+
+.connections {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+  margin: 0rem 0.5rem;
+}
+
+.menuIconLists {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0.5rem;
+  cursor: pointer;
+}
+
+.menuIconLists i{
+  margin: 0.8rem 0;
+  color: white;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menuIconLists span {
+  text-align: left;
+  color: white;
+  border: none;
+  margin-left: 1.5rem;
+}
+
+.list:hover {
+  background-color:#88898a;
+  color: black;
+  padding: 0.1rem;
+  border-radius: 1rem;
+}
+
+.menuProfessionals {
+  padding: 1rem 0.5rem;
+  margin: 0.8rem 0;
+  border-top: 0.05rem solid #b2bec3;
+  border-bottom: 0.05rem solid #b2bec3;
+}
+
+.menuProfessionals i {
+  padding: 0 1rem 0 0;
+}
+
+.menuSetting {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.menuSetting p{
+  padding: 0.5rem 0;
+}
+
+.menuSetting button {
+  align-self: center;
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem;
+  border: 0.05rem solid #b2bec3;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin: 2rem 0;
+}
+
+.logo{
+  display: none;
+}
+
+.side-home {
+  display: none;
+}
+
+.sideMenuContainer{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100rem);
+  height: 93vh;
+  overflow-y: scroll;
+}
+
+.container::webkit-scrollbar {
+  display: none;
+}
+
+.side-toggle {
+  width: 100%;
+  z-index: 1000;
+}
+
+.show-toggle{
+  transform: translateX(0px);
+} 
+
+.hide-toggle {
+  transform: translateX(-100rem);
+}
+
+.signIn-container {
+  margin: auto;
+  width: 70%;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+
+.error-message {
+  color: red;
+}
+
+.popup-container {
+  background-color: #b3bbbe;
+  border-radius: 1rem;
+}
+
+.signIn-box {
+  margin: 1rem;
+}
+
+.signIn-box form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.emailInput {
+  margin: 1rem 0;
+  padding: 0.3rem ;
+  border: none;
+  border-radius: 1rem;
+}
+
+.password {
+  margin: 1rem 0;
+  padding: 0.3rem ;
+  border: none;
+  border-radius: 1rem;
+}
+
+.signin-btn {
+  margin: 1rem 0;
+  border:0.25px solid #657070;
+  padding: 0.25rem;
+  border-radius: 15px;
+}
+
+.signIn-box button {
+  outline: none;
+  cursor: pointer;
+}
+
+.signIn-box span {
+  color:#850bb9;
+}
+
+.signUp-main-container {
+  width: 100%;
+  margin: auto;
+}
+
+.signUp-main {
+  margin: 1rem;
+  position: absolute;
+  top: 10%;
+}
+
+.signUp-form {
+  margin: 1rem;
+  background-color: #b2bec3;
+  border-radius: 1rem;
+}
+
+.signUp-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.signUp-form h3 {
+  margin: 1rem 0;
+}
+
+.signUp-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signUp-header .fa-xmark{
+  font-size: 1.2rem;
+  color: black;
+}
+
+.signUp-form  form h3 {
+  color: black;
+}
+
+.signUp-form input {
+  padding: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.signIn-box p{
+  color: black;
+}
+
+.signUp-form button {
+  margin: 1rem 0;
+}
+
+.ch {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ch img {
+  width: 80%;
+  margin-bottom: 2rem;
+}
+.ci {
+  display: flex;
+  align-items: center;
+}
+
+.ch .fa-plus{
+  background-color: #1DA1F2;
+  color: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.cm {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.comment {
+background-color:#b2bec3;
+color:black;
+padding: 0.2rem 0.5rem ;
+margin: 0.5rem 0;
+width: 100%;
+}
+
+
+
+
+@media screen and (min-width:900px) {
+
+  body {
+    font-size: 1.2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container{
+    margin: 0 10em;
   }
+
+  .mainContainer {
+    width: 60%;
+    margin: auto;
+  }
+
+  .header .avatar{
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .sideMenuContainer {
+    display: flex;
+    transform: translateX(0rem);
+    width: 25%;
+    height: 100%;
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+    right: auto;
+    margin-left: 10em;
+  }
+
+  .menuHeader{
+    display: none;
+  }
+
+  .logo{
+    display: block;
+    align-self: center;
+    margin-top: 1rem;
+  }
+
+  .side-home {
+    display: block;
+  }
+
+  .menuSetting button {
+    margin: 1rem 0;
+  }
+
+  .header .message-search{
+    display: block;
+  }
+
+  .header.profile {
+    background-color: #1DA1F2;
+    height:25vh;
+  }
+ 
+  .header.profile .avatar {
+    position: sticky;
+    left: 22%;
+    width:20%;
+    height:100%;
+    display: block;
+  }
+
+  .header.profile i{
+    font-size: 1.3rem;
+    top: 10%;
+    left: auto;
+    right: 25%;
+    bottom: 0;
+  }
+
+  .container .add-tweet{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-Tweet-icon {
+    display: block;
+    position: fixed;
+    left: 65%;
+  }
+
+  .add-tweet {
+    padding: 1rem;
+  }
+
+  .signIn-container{
+    margin: auto;
+    width: 25%;
+    position:absolute;
+    top: 10%;
+    left: 40%;
+  }
+
+  .signUp-main{
+    position: absolute;
+    top: 13%;
+    left: 40%;
+  }
+
+  .ci {
+    width: 100%;
+    justify-content: center;
+  }
+
 }
